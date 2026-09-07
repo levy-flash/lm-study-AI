@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LM STUDY - Cours</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<header class="main-header">
+
+    <div class="logo">
+        <img src="images/lm study.png" alt="LM STUDY">
+        <span>LM STUDY</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="cours.html" class="active">Cours</a>
+        <a href="exercices.html">Exercices</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="profil.html">Profil</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+</header>
+
+
+<main class="detail-page">
+
+    <!-- HERO -->
+
+    <section class="detail-hero">
+
+        <div class="floating-circle circle-one"></div>
+        <div class="floating-circle circle-two"></div>
+
+        <div class="detail-hero-content">
+
+            <div class="detail-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+
+            <span>LM STUDY ACADEMY</span>
+
+            <h1 id="courseTitle">
+                Cours
+            </h1>
+
+            <p id="courseDescription">
+                Prépare-toi à apprendre et à progresser.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTENU -->
+
+    <section class="detail-container">
+
+        <!-- RETOUR -->
+
+        <button class="back-course-btn" onclick="retourCours()">
+
+            <i class="fas fa-arrow-left"></i>
+
+            Retour aux cours
+
+        </button>
+
+
+        <!-- RECHERCHE -->
+
+        <div class="lesson-search">
+
+            <i class="fas fa-search"></i>
+
+            <input
+                type="text"
+                id="lessonSearch"
+                placeholder="Rechercher un chapitre ou une leçon...">
+
+            <button onclick="rechercherLecon()">
+                Rechercher
+            </button>
+
+        </div>
+
+
+        <div id="searchResult"></div>
+
+
+        <!-- PRESENTATION -->
+
+        <section class="course-introduction">
+
+            <div class="intro-icon">
+
+                <i class="fas fa-book-open"></i>
+
+            </div>
+
+            <div>
+
+                <span>BIENVENUE DANS TON COURS</span>
+
+                <h2 id="introTitle">
+                    Apprends à ton rythme
+                </h2>
+
+                <p id="introText">
+                    Découvre les différents chapitres,
+                    comprends les notions importantes et
+                    entraîne-toi avec LM STUDY.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CHAPITRES -->
+
+        <section class="lessons-section">
+
+            <div class="section-heading">
+
+                <span>PROGRAMME</span>
+
+                <h2>Chapitres du cours</h2>
+
+                <p>
+                    Sélectionne une leçon pour commencer.
+                </p>
+
+            </div>
+
+
+            <div id="lessonsGrid" class="lessons-grid"></div>
+
+        </section>
+
+
+        <!-- LEÇON -->
+
+        <section
+            id="lessonViewer"
+            class="lesson-viewer"
+            style="display:none;">
+
+            <div class="lesson-content">
+
+                <button
+                    class="close-lesson"
+                    onclick="fermerLecon()">
+
+                    <i class="fas fa-xmark"></i>
+
+                </button>
+
+
+                <div class="lesson-number" id="lessonNumber">
+                    01
+                </div>
+
+
+                <span class="lesson-label">
+                    LEÇON LM STUDY
+                </span>
+
+
+                <h2 id="lessonTitle">
+                    Titre de la leçon
+                </h2>
+
+
+                <div
+                    id="lessonBody"
+                    class="lesson-body">
+                </div>
+
+
+                <div class="lesson-actions">
+
+                    <button
+                        class="lesson-action primary"
+                        onclick="allerExercices()">
+
+                        <i class="fas fa-pen"></i>
+
+                        Faire des exercices
+
+                    </button>
+
+
+                    <button
+                        class="lesson-action secondary"
+                        onclick="allerQuiz()">
+
+                        <i class="fas fa-circle-question"></i>
+
+                        Faire un quiz
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- OUTILS -->
+
+        <section class="learning-tools">
+
+            <div class="tool-card">
+
+                <div class="tool-icon blue">
+
+                    <i class="fas fa-pen-to-square"></i>
+
+                </div>
+
+                <h3>Exercices</h3>
+
+                <p>
+                    Mets tes connaissances en pratique
+                    avec des exercices.
+                </p>
+
+                <button onclick="allerExercices()">
+                    Voir les exercices
+                </button>
+
+            </div>
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon orange">
+
+                    <i class="fas fa-trophy"></i>
+
+                </div>
+
+                <h3>Quiz</h3>
+
+                <p>
+                    Teste tes connaissances avec
+                    des quiz interactifs.
+                </p>
+
+                <button onclick="allerQuiz()">
+                    Faire un quiz
+                </button>
+
+            </div>
+
+
+            <div class="tool-card">
+
+                <div class="tool-icon green">
+
+                    <i class="fas fa-chart-line"></i>
+
+                </div>
+
+                <h3>Progression</h3>
+
+                <p>
+                    Continue à apprendre pour améliorer
+                    tes résultats.
+                </p>
+
+                <button onclick="allerDashboard()">
+                    Mon dashboard
+                </button>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+<footer class="main-footer">
+
+    <div class="logo">
+
+        <img src="images/lm study.png" alt="LM STUDY">
+
+        <span>LM STUDY</span>
+
+    </div>
+
+    <p>
+        Apprendre aujourd'hui pour construire demain.
+    </p>
+
+    <p>
+        © 2026 LM STUDY - Tous droits réservés.
+    </p>
+
+</footer>
+
+
+<script src="js/cours-detail.js"></script>
+
+</body>
+</html>

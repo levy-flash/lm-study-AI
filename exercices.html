@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LM STUDY - Exercices</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<header class="main-header">
+
+    <div class="logo">
+        <img src="images/lm study.png" alt="LM STUDY">
+        <span>LM STUDY</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="cours.html">Cours</a>
+        <a href="exercices.html" class="active">Exercices</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="profil.html">Profil</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+</header>
+
+
+<main class="exercices-page">
+
+    <!-- HERO -->
+
+    <section class="exercise-hero">
+
+        <div class="hero-decoration decoration-one"></div>
+        <div class="hero-decoration decoration-two"></div>
+
+        <div class="hero-content">
+
+            <div class="hero-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+
+            <h1>Centre des Exercices</h1>
+
+            <p>
+                Entraîne-toi, progresse et teste tes connaissances
+                avec LM STUDY.
+            </p>
+
+            <div class="exercise-stats">
+
+                <div class="stat">
+                    <strong>12</strong>
+                    <span>Matières</span>
+                </div>
+
+                <div class="stat">
+                    <strong>360</strong>
+                    <span>Exercices</span>
+                </div>
+
+                <div class="stat">
+                    <strong>3</strong>
+                    <span>Niveaux</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CHOIX MATIÈRE -->
+
+    <section id="matieresSection" class="subjects-section">
+
+        <div class="section-heading">
+
+            <span>APPRENTISSAGE</span>
+
+            <h2>Choisis une matière</h2>
+
+            <p>
+                Sélectionne une matière pour accéder aux exercices.
+            </p>
+
+        </div>
+
+
+        <div class="subjects-grid">
+
+            <div class="new-subject-card math-card"
+                 onclick="afficherExercices('Mathématiques')">
+
+                <div class="subject-number">01</div>
+
+                <div class="subject-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+
+                <h3>Mathématiques</h3>
+
+                <p>Calcul, algèbre, géométrie...</p>
+
+                <button>Commencer <i class="fas fa-arrow-right"></i></button>
+
+            </div>
+
+
+            <div class="new-subject-card physics-card"
+                 onclick="afficherExercices('Physique')">
+
+                <div class="subject-number">02</div>
+
+                <div class="subject-icon">
+                    <i class="fas fa-atom"></i>
+                </div>
+
+                <h3>Physique</h3>
+
+                <p>Forces, énergie, électricité...</p>
+
+                <button>Commencer <i class="fas fa-arrow-right"></i></button>
+
+            </div>
+
+
+            <div class="new-subject-card chemistry-card"
+                 onclick="afficherExercices('Chimie')">
+
+                <div class="subject-number">03</div>
+
+                <div class="subject-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+
+                <h3>Chimie</h3>
+
+                <p>Atomes, molécules, réactions...</p>
+
+                <button>Commencer <i class="fas fa-arrow-right"></i></button>
+
+            </div>
+
+
+            <div class="new-subject-card biology-card"
+                 onclick="afficherExercices('Biologie')">
+
+                <div class="subject-number">04</div>
+
+                <div class="subject-icon">
+                    <i class="fas fa-dna"></i>
+                </div>
+
+                <h3>Biologie</h3>
+
+                <p>Cellules, organismes, vivant...</p>
+
+                <button>Commencer <i class="fas fa-arrow-right"></i></button>
+
+            </div>
+
+
+            <div class="new-subject-card computer-card"
+                 onclick="afficherExercices('Informatique')">
+
+                <div class="subject-number">05</div>
+
+                <div class="subject-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+
+                <h3>Informatique</h3>
+
+                <p>Ordinateurs, réseaux, systèmes...</p>
+
+                <button>Commencer <i class="fas fa-arrow-right"></i></button>
+
+            </div>
+
+
+            <div class="new-subject-card programming-card"
+                 onclick="afficherExercices('Programmation')">
+
+                <div class="subject-number">06</div>
+
+                <div class="subject-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+
+                <h3>Programmation</h3>
+
+                <p>HTML, CSS, JavaScript, logique...</p>
+
+                <button>Commencer <i class="fas fa-arrow-right"></i></button>
+
+            </div>
+
+
+            <div class="new-subject-card french-card"
+                 onclick="afficherExercices('Français')">
+
+                <div class="subject-number">07</div>
+
+                <div class="subject-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+
+                <h3>Français</h3>
+
+                <p>Grammaire, conjugaison, vocabulaire...</p>
+
+                <button>Commencer <i class="fas fa-arrow-right"></i></button>
+
+            </div>
+
+
+            <div class="new-subject-card english-card"
+                 onclick="afficherExercices('Anglais')">
+
+                <div class="subject-number">08</div>
+
+                <div class="subject-icon">
+                    <i class="fas fa-language"></i>
+                </div>
+
+                <h3>Anglais</h3>
+
+                <p>Grammar, vocabulary, verbs...</p>
+
+                <button>Commencer <i class="fas fa-arrow-right"></i></button>
+
+            </div>
+
+
+            <div class="new-subject-card spanish-card"
+                 onclick="afficherExercices('Espagnol')">
+
+                <div class="subject-number">09</div>
+
+                <div class="subject-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+
+                <h3>Espagnol</h3>
+
+                <p>Grammaire, vocabulaire, conjugaison...</p>
+
+                <button>Commencer <i class="fas fa-arrow-right"></i></button>
+
+            </div>
+
+
+            <div class="new-subject-card history-card"
+                 onclick="afficherExercices('Histoire-Géographie')">
+
+                <div class="subject-number">10</div>
+
+                <div class="subject-icon">
+                    <i class="fas fa-globe-africa"></i>
+                </div>
+
+                <h3>Histoire-Géographie</h3>
+
+                <p>Monde, Afrique, histoire...</p>
+
+                <button>Commencer <i class="fas fa-arrow-right"></i></button>
+
+            </div>
+
+
+            <div class="new-subject-card philosophy-card"
+                 onclick="afficherExercices('Philosophie')">
+
+                <div class="subject-number">11</div>
+
+                <div class="subject-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+
+                <h3>Philosophie</h3>
+
+                <p>Idées, raisonnement, auteurs...</p>
+
+                <button>Commencer <i class="fas fa-arrow-right"></i></button>
+
+            </div>
+
+
+            <div class="new-subject-card economy-card"
+                 onclick="afficherExercices('Économie')">
+
+                <div class="subject-number">12</div>
+
+                <div class="subject-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+
+                <h3>Économie</h3>
+
+                <p>Marché, production, consommation...</p>
+
+                <button>Commencer <i class="fas fa-arrow-right"></i></button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LISTE DES EXERCICES -->
+
+    <section id="exercicesListe" class="exercise-selection" style="display:none;">
+
+        <div class="exercise-selection-header">
+
+            <button class="back-button" onclick="retourMatieres()">
+                <i class="fas fa-arrow-left"></i>
+                Matières
+            </button>
+
+            <div>
+                <span>LM STUDY</span>
+                <h2 id="matiereTitre"></h2>
+            </div>
+
+        </div>
+
+
+        <!-- NIVEAUX -->
+
+        <div class="levels-container">
+
+            <button class="level-button easy"
+                    onclick="filtrerNiveau('facile')">
+
+                <i class="fas fa-seedling"></i>
+
+                <div>
+                    <strong>Facile</strong>
+                    <small>10 exercices</small>
+                </div>
+
+            </button>
+
+
+            <button class="level-button medium"
+                    onclick="filtrerNiveau('moyen')">
+
+                <i class="fas fa-fire"></i>
+
+                <div>
+                    <strong>Moyen</strong>
+                    <small>10 exercices</small>
+                </div>
+
+            </button>
+
+
+            <button class="level-button hard"
+                    onclick="filtrerNiveau('difficile')">
+
+                <i class="fas fa-bolt"></i>
+
+                <div>
+                    <strong>Difficile</strong>
+                    <small>10 exercices</small>
+                </div>
+
+            </button>
+
+        </div>
+
+
+        <div id="listeExercices" class="exercise-list"></div>
+
+    </section>
+
+
+    <!-- EXERCICE -->
+
+    <section id="zoneExercice" class="active-exercise" style="display:none;">
+
+        <div class="exercise-box-new">
+
+            <div class="exercise-top">
+
+                <button class="back-button"
+                        onclick="retourListe()">
+
+                    <i class="fas fa-arrow-left"></i>
+                    Retour
+
+                </button>
+
+                <div id="progression">
+                    Exercice 1 / 10
+                </div>
+
+            </div>
+
+
+            <div id="niveauBadge" class="niveau-badge">
+                FACILE
+            </div>
+
+
+            <div class="question-area">
+
+                <span id="numeroQuestion">Question 1</span>
+
+                <h2 id="questionTexte"></h2>
+
+            </div>
+
+
+            <div id="choixReponses" class="answers-container"></div>
+
+
+            <div id="champReponse">
+
+                <input
+                    type="text"
+                    id="reponseUtilisateur"
+                    class="reponse-input-new"
+                    placeholder="Écris ta réponse ici..."
+                >
+
+            </div>
+
+
+            <div id="feedback" class="feedback"></div>
+
+
+            <div class="exercise-actions">
+
+                <button
+                    id="verifierBtn"
+                    class="verify-button"
+                    onclick="verifierExercice()">
+
+                    <i class="fas fa-check"></i>
+                    Vérifier
+
+                </button>
+
+
+                <button
+                    id="suivantBtn"
+                    class="next-button"
+                    onclick="exerciceSuivant()"
+                    style="display:none;">
+
+                    Exercice suivant
+                    <i class="fas fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESULTAT -->
+
+    <section id="resultatSection"
+             class="result-section"
+             style="display:none;">
+
+        <div class="result-card">
+
+            <div class="result-icon">
+                <i class="fas fa-trophy"></i>
+            </div>
+
+            <h2>Excellent travail ! 🎉</h2>
+
+            <p id="resultMessage"></p>
+
+            <div class="final-score">
+                <span id="scoreFinal">0</span>
+                <small>/ 10</small>
+            </div>
+
+            <button onclick="recommencerNiveau()"
+                    class="restart-button">
+
+                <i class="fas fa-redo"></i>
+                Recommencer
+
+            </button>
+
+            <button onclick="retourListe()"
+                    class="back-result-button">
+
+                Choisir un autre niveau
+
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="main-footer">
+
+    <div class="logo">
+        <img src="images/lm study.png" alt="LM STUDY">
+        <span>LM STUDY</span>
+    </div>
+
+    <p>
+        Apprendre aujourd'hui pour construire demain.
+    </p>
+
+    <p>
+        © 2026 LM STUDY - Tous droits réservés.
+    </p>
+
+</footer>
+
+
+<script src="js/exercices.js"></script>
+
+</body>
+</html>

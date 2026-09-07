@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LM STUDY - Apprendre autrement</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* Your CSS styles here */
+    </style>
+
+    <script>
+        
+
+function afficherMessage(auteur, texte) {
+    const div = document.createElement('div');
+    div.style.margin = '10px 0';
+    div.innerHTML = `<b>${auteur}:</b> ${texte}`;
+    chatBox.appendChild(div);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+async function envoyerMessage() {
+    const message = userInput.value;
+    if (!message) return;
+
+    afficherMessage("Toi", message);
+    userInput.value = "";
+
+    try {
+        const res = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message })
+        });
+
+        const data = await res.json();
+        afficherMessage("LM STUDY AI", data.answer);
+        
+    } catch (error) {
+        afficherMessage("LM STUDY AI", "Désolé, erreur de connexion 😢");
+        console.error(error);
+    }
+}
+
+btnEnvoyer.addEventListener('click', envoyerMessage);
+userInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') envoyerMessage();
+});
+</script>
+
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="image-card">
+            <img src="images/lm study.png" 
+            alt="LM STUDY">
+        </div>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="active">
+                <i class="fas fa-home"></i>
+                Accueil
+            </a>
+
+            <a href="cours.html">
+                <i class="fas fa-book"></i>
+                Cours
+            </a>
+
+            <a href="exercices.html">
+                <i class="fas fa-pen"></i>
+                Exercices
+            </a>
+
+            <a href="quiz.html">
+                <i class="fas fa-brain"></i>
+                Quiz
+            </a>
+
+            <a href="dashboard.html">
+                <i class="fas fa-chart-line"></i>
+                Tableau de bord
+            </a>
+
+            <a href="profil.html">
+                <i class="fas fa-user"></i>
+                Profil
+            </a>
+
+            <a href="contact.html">
+                <i class="fas fa-envelope"></i>
+                Contact
+            </a>
+
+        </nav>
+
+        <!-- Sélecteur de langue -->
+
+       <select id="languageSelect">
+    <option value="fr">🇫🇷 Français</option>
+    <option value="en">🇬🇧 English</option>
+    <option value="es">🇪🇸 Español</option>
+    <option value="it">🇮🇹 Italiano</option>
+    <option value="pt">🇵🇹 Português</option>
+    <option value="zh">🇨🇳 中文</option>
+    <option value="de">🇩🇪 Deutsch</option>
+    <option value="ar">🇸🇦 العربية</option>
+    <option value="sw">🇰🇪 Kiswahili</option>
+</select>
+
+        <button class="menu-btn" id="menuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <!-- Formes décoratives -->
+
+            <div class="shape shape-one"></div>
+            <div class="shape shape-two"></div>
+            <div class="shape shape-three"></div>
+
+            <div class="hero-content">
+
+                <span class="small-title">
+                    🚀 BIENVENUE SUR LM STUDY
+                </span>
+
+                <h1>
+                    Apprends aujourd'hui.
+                    <span>Construis ton avenir.</span>
+                </h1>
+
+                <p>
+                    Une plateforme intelligente conçue pour aider les apprenants
+                    à apprendre, réviser, s'exercer et progresser plus facilement.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="cours.html" class="btn primary-btn">
+                        <i class="fas fa-book-open"></i>
+                        Découvrir les cours
+                    </a>
+
+                    <a href="quiz.html" class="btn secondary-btn">
+                        <i class="fas fa-brain"></i>
+                        Faire un quiz
+                    </a>
+
+                </div>
+
+                <div class="hero-stats">
+
+                    <div>
+                        <strong>+100</strong>
+                        <span>Cours</span>
+                    </div>
+
+                    <div>
+                        <strong>+500</strong>
+                        <span>Exercices</span>
+                    </div>
+
+                    <div>
+                        <strong>+50</strong>
+                        <span>Quiz</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE LM AVENIR -->
+
+            <div class="hero-image">
+
+                <div class="image-card">
+
+                    <img src="images/lm avenir.png"
+                         alt="LM AVENIR">
+
+                    <div class="floating-card card-one">
+                        📚
+                        <span>Apprendre</span>
+                    </div>
+
+                    <div class="floating-card card-two">
+                        🧠
+                        <span>Comprendre</span>
+                    </div>
+
+                    <div class="floating-card card-three">
+                        🚀
+                        <span>Réussir</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RECHERCHE IA ================= -->
+
+        <section class="ai-section">
+
+            <div class="section-title">
+
+                <span>🤖 ASSISTANT INTELLIGENT</span>
+
+                <h2>
+                    Pose ta question à
+                    <strong>LM STUDY AI</strong>
+                </h2>
+
+                <p>
+                    Recherche une notion, demande une explication,
+                    un exercice ou une aide pour tes révisions.
+                </p>
+
+            </div>
+
+
+            <div class="ai-box">
+
+                <div class="ai-header">
+
+                    <div class="ai-avatar">
+                        🤖
+                    </div>
+
+                    <div>
+                        <h3>LM STUDY AI</h3>
+                        <span>Assistant pédagogique</span>
+                    </div>
+
+                    <div class="online">
+                        <span></span>
+                        En ligne
+                    </div>
+
+                </div>
+
+
+                <div class="ai-input-container">
+
+                    <input
+                        type="text"
+                        id="aiQuestion"
+                        placeholder="Exemple : Explique-moi la loi d'Ohm..."
+                    >
+
+                    <button id="askAI">
+                        <i class="fas fa-paper-plane"></i>
+                        Envoyer
+                    </button>
+
+                </div>
+
+
+                <div id="aiResponse" class="ai-response">
+
+                    <div class="welcome-ai">
+                        👋 Bonjour ! Je suis <strong>LM STUDY AI</strong>.
+                        Pose-moi une question pour commencer.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SERVICES ================= -->
+
+        <section class="services">
+
+            <div class="section-title">
+
+                <span>✨ NOS SERVICES</span>
+
+                <h2>
+                    Tout ce qu'il te faut
+                    <strong>pour apprendre</strong>
+                </h2>
+
+            </div>
+
+
+            <div class="services-grid">
+
+
+                <div class="service-card blue-card">
+
+                    <div class="service-icon">
+                        📚
+                    </div>
+
+                    <h3>Cours</h3>
+
+                    <p>
+                        Découvre des cours organisés par matières
+                        et niveaux.
+                    </p>
+
+                    <a href="cours.html">
+                        Explorer →
+                    </a>
+
+                </div>
+
+
+                <div class="service-card yellow-card">
+
+                    <div class="service-icon">
+                        📝
+                    </div>
+
+                    <h3>Exercices</h3>
+
+                    <p>
+                        Entraîne-toi grâce à des exercices
+                        progressifs.
+                    </p>
+
+                    <a href="exercices.html">
+                        S'exercer →
+                    </a>
+
+                </div>
+
+
+                <div class="service-card red-card">
+
+                    <div class="service-icon">
+                        🧠
+                    </div>
+
+                    <h3>Quiz</h3>
+
+                    <p>
+                        Teste tes connaissances avec des quiz
+                        interactifs.
+                    </p>
+
+                    <a href="quiz.html">
+                        Commencer →
+                    </a>
+
+                </div>
+
+
+                <div class="service-card black-card">
+
+                    <div class="service-icon">
+                        📊
+                    </div>
+
+                    <h3>Progression</h3>
+
+                    <p>
+                        Suis ton évolution et découvre
+                        tes performances.
+                    </p>
+
+                    <a href="dashboard.html">
+                        Voir →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MOTIVATION ================= -->
+
+        <section class="motivation">
+
+            <div class="motivation-content">
+
+                <span>🔥 TON AVENIR COMMENCE MAINTENANT</span>
+
+                <h2>
+                    Travaille aujourd'hui
+                    <br>
+                    pour mieux vivre demain.
+                </h2>
+
+                <p>
+                    Chaque page étudiée, chaque exercice réalisé
+                    et chaque connaissance acquise te rapproche
+                    de tes objectifs.
+                </p>
+
+                <a href="cours.html" class="btn primary-btn">
+                    Commencer maintenant
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+
+            <img src="images/lm study.png" alt="LM STUDY">
+
+            <h3>LM STUDY</h3>
+
+            <p>
+                Apprendre aujourd'hui pour construire demain.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h4>Navigation</h4>
+
+            <a href="index.html">Accueil</a>
+            <a href="cours.html">Cours</a>
+            <a href="exercices.html">Exercices</a>
+            <a href="quiz.html">Quiz</a>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <h4>Contact</h4>
+
+            <p>
+                📞 +242 06789 27 23 / 05 077 36 43
+            </p>
+
+            <p>
+                📧 Assistance LM STUDY
+            </p>
+
+        </div>
+
+
+        <div class="footer-social">
+
+            <h4>Suivez-nous</h4>
+
+            <div>
+
+                <a href="#">f</a>
+                <a href="#">𝕏</a>
+                <a href="#">in</a>
+                <a href="#">▶</a>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+
+            © 2026 LM STUDY — Tous droits réservés.
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/languages.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

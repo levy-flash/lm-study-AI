@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LM STUDY - À propos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f4f7ff;
+            color: #172554;
+        }
+
+        header {
+            min-height: 75px;
+            background: linear-gradient(135deg, #0b5ed7, #123c8c);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 6%;
+            box-shadow: 0 5px 20px rgba(0,0,0,.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .logo img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            border-radius: 50%;
+            animation: logo 3s infinite ease-in-out;
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 9px 13px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #ffd43b;
+            color: #172554;
+            transform: translateY(-3px);
+        }
+
+        .hero {
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 70px 20px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b5ed7, #2563eb, #7c3aed);
+            color: white;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,.10);
+            border-radius: 50%;
+            top: -180px;
+            right: -100px;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: rgba(255,212,59,.18);
+            border-radius: 50%;
+            bottom: -120px;
+            left: -80px;
+            animation: float 5s infinite ease-in-out reverse;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            position: relative;
+            z-index: 2;
+            animation: apparition 1s ease;
+        }
+
+        .hero-logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,.3));
+        }
+
+        .hero h1 {
+            font-size: clamp(35px, 6vw, 65px);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #ffd43b;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .btn-yellow {
+            background: #ffd43b;
+            color: #172554;
+        }
+
+        .btn-white {
+            background: white;
+            color: #1554b5;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(0,0,0,.2);
+        }
+
+        .section {
+            padding: 80px 6%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #ef4444;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin: 10px 0;
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        .cards {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(15,23,42,.08);
+            transition: .4s;
+            border-top: 5px solid #2563eb;
+            animation: apparition 1s ease;
+        }
+
+        .card:nth-child(2) {
+            border-color: #ffd43b;
+        }
+
+        .card:nth-child(3) {
+            border-color: #ef4444;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(15,23,42,.15);
+        }
+
+        .card-icon {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e8f0ff;
+            color: #2563eb;
+            font-size: 30px;
+        }
+
+        .card:nth-child(2) .card-icon {
+            background: #fff7cc;
+            color: #d99b00;
+        }
+
+        .card:nth-child(3) .card-icon {
+            background: #ffe5e5;
+            color: #ef4444;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .image-section {
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(15,23,42,.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .image-section img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            border-radius: 25px;
+            transition: .5s;
+        }
+
+        .image-section img:hover {
+            transform: scale(1.03);
+        }
+
+        .image-text h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .image-text p {
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature {
+            background: white;
+            padding: 25px 15px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(15,23,42,.08);
+            transition: .3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-8px);
+        }
+
+        .feature i {
+            font-size: 35px;
+            color: #2563eb;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-size: 17px;
+        }
+
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer .logo {
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #cbd5e1;
+            margin: 8px;
+        }
+
+        @keyframes apparition {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(30px);
+            }
+        }
+
+        @keyframes logo {
+            0%, 100% {
+                transform: rotate(0deg) scale(1);
+            }
+
+            50% {
+                transform: rotate(5deg) scale(1.05);
+            }
+        }
+
+        @media (max-width: 850px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .image-section {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 600px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="images/lm study.png" alt="LM STUDY">
+        <span>LM STUDY</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="cours.html">Cours</a>
+        <a href="exercices.html">Exercices</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="profil.html" class="active">Profil</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <img
+            src="images/lm study.png"
+            alt="Logo LM STUDY"
+            class="hero-logo"
+        >
+
+        <h1>
+            Apprendre aujourd'hui,
+            <span>construire demain.</span>
+        </h1>
+
+        <p>
+            Bienvenue sur LM STUDY, une plateforme éducative moderne
+            conçue pour aider les apprenants à apprendre, comprendre,
+            s'exercer et progresser plus facilement.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="cours.html" class="btn btn-yellow">
+                <i class="fas fa-book"></i>
+                Découvrir les cours
+            </a>
+
+            <a href="contact.html" class="btn btn-white">
+                <i class="fas fa-envelope"></i>
+                Nous contacter
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+        <span>QUI SOMMES-NOUS ?</span>
+        <h2>Bienvenue chez LM STUDY</h2>
+        <p>
+            Une plateforme pensée pour rendre l'apprentissage plus simple,
+            moderne et accessible.
+        </p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon">
+                <i class="fas fa-bullseye"></i>
+            </div>
+
+            <h3>Notre mission</h3>
+
+            <p>
+                Donner aux apprenants les outils nécessaires pour mieux
+                comprendre leurs cours et développer leurs connaissances.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon">
+                <i class="fas fa-lightbulb"></i>
+            </div>
+
+            <h3>Notre objectif</h3>
+
+            <p>
+                Faciliter l'apprentissage grâce aux cours, exercices,
+                quiz et outils numériques proposés par LM STUDY.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="card-icon">
+                <i class="fas fa-eye"></i>
+            </div>
+
+            <h3>Notre vision</h3>
+
+            <p>
+                Construire une communauté d'apprenants motivés capables
+                de progresser et de préparer leur avenir.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="image-section">
+
+        <img
+            src="images/lm avenir.png"
+            alt="LM STUDY - Construire son avenir"
+        >
+
+        <div class="image-text">
+
+            <h2>Ton avenir commence maintenant.</h2>
+
+            <p>
+                Chaque nouvelle connaissance représente une étape
+                vers ton avenir.
+            </p>
+
+            <p>
+                Avec LM STUDY, tu peux consulter des cours, résoudre
+                des exercices, participer à des quiz et utiliser
+                LM STUDY AI pour poser tes questions.
+            </p>
+
+            <p>
+                <strong>
+                    Travaille aujourd'hui pour mieux construire demain.
+                </strong>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+        <span>LM STUDY</span>
+        <h2>Tout pour apprendre</h2>
+        <p>
+            Plusieurs outils réunis dans une seule plateforme.
+        </p>
+    </div>
+
+    <div class="features">
+
+        <div class="feature">
+            <i class="fas fa-book-open"></i>
+            <h3>Cours</h3>
+        </div>
+
+        <div class="feature">
+            <i class="fas fa-pen"></i>
+            <h3>Exercices</h3>
+        </div>
+
+        <div class="feature">
+            <i class="fas fa-circle-question"></i>
+            <h3>Quiz</h3>
+        </div>
+
+        <div class="feature">
+            <i class="fas fa-robot"></i>
+            <h3>LM STUDY AI</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="logo">
+        <img src="images/lm study.png" alt="LM STUDY">
+        <span>LM STUDY</span>
+    </div>
+
+    <p>Apprendre aujourd'hui pour construire demain.</p>
+
+    <p>© 2026 LM STUDY - Tous droits réservés.</p>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz - LM STUDY</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .quiz-page {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .quiz-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .quiz-title h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .quiz-title p {
+            font-size: 17px;
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .subject-card {
+            border: none;
+            border-radius: 18px;
+            padding: 25px 15px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+            transition: 0.3s;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+        }
+
+        .subject-icon {
+            display: block;
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        #quizArea {
+            display: none;
+            margin-top: 35px;
+        }
+
+        .quiz-box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .question {
+            font-size: 23px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .answers {
+            display: grid;
+            gap: 15px;
+        }
+
+        .answer {
+            padding: 16px;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            background: #fff;
+            text-align: left;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+
+        .answer:hover {
+            border-color: #2563eb;
+            background: #f4f7ff;
+        }
+
+        .answer.selected {
+            border-color: #2563eb;
+            background: #eaf0ff;
+        }
+
+        .next-btn,
+        .back-btn {
+            border: none;
+            padding: 13px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 25px;
+        }
+
+        .next-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .back-btn {
+            background: #ddd;
+            margin-right: 10px;
+        }
+
+        #resultArea {
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+            padding: 35px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
+
+        .score {
+            font-size: 45px;
+            font-weight: bold;
+            margin: 20px;
+        }
+
+        .restart-btn {
+            border: none;
+            background: #2563eb;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="images/lm study.png" alt="LM STUDY">
+        <span>LM STUDY</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="cours.html">Cours</a>
+        <a href="exercices.html">Exercices</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="profil.html">Profil</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+
+<main class="quiz-page">
+
+    <section class="quiz-title">
+        <h1>🧠 Quiz LM STUDY</h1>
+        <p>Choisis une matière et teste tes connaissances.</p>
+    </section>
+
+
+    <!-- MATIÈRES -->
+
+    <section id="subjects" class="subjects">
+
+        <button class="subject-card" onclick="startQuiz('math')">
+            <span class="subject-icon">📐</span>
+            Mathématiques
+        </button>
+
+        <button class="subject-card" onclick="startQuiz('physique')">
+            <span class="subject-icon">⚡</span>
+            Physique
+        </button>
+
+        <button class="subject-card" onclick="startQuiz('chimie')">
+            <span class="subject-icon">🧪</span>
+            Chimie
+        </button>
+
+        <button class="subject-card" onclick="startQuiz('biologie')">
+            <span class="subject-icon">🧬</span>
+            Biologie
+        </button>
+
+        <button class="subject-card" onclick="startQuiz('informatique')">
+            <span class="subject-icon">💻</span>
+            Informatique
+        </button>
+
+        <button class="subject-card" onclick="startQuiz('francais')">
+            <span class="subject-icon">🇫🇷</span>
+            Français
+        </button>
+
+        <button class="subject-card" onclick="startQuiz('anglais')">
+            <span class="subject-icon">🇬🇧</span>
+            Anglais
+        </button>
+
+        <button class="subject-card" onclick="startQuiz('histoire')">
+            <span class="subject-icon">🌍</span>
+            Histoire-Géographie
+        </button>
+
+        <button class="subject-card" onclick="startQuiz('philosophie')">
+            <span class="subject-icon">🧠</span>
+            Philosophie
+        </button>
+
+        <button class="subject-card" onclick="startQuiz('culture')">
+            <span class="subject-icon">🌎</span>
+            Culture générale
+        </button>
+
+    </section>
+
+
+    <!-- ZONE DU QUIZ -->
+
+    <section id="quizArea">
+
+        <div class="quiz-box">
+
+            <div class="quiz-header">
+                <span id="subjectName"></span>
+                <span id="questionNumber"></span>
+                <span id="scoreDisplay">Score : 0</span>
+            </div>
+
+            <div id="questionText" class="question"></div>
+
+            <div id="answers" class="answers"></div>
+
+            <button class="back-btn" onclick="backToSubjects()">
+                ← Matières
+            </button>
+
+            <button class="next-btn" onclick="nextQuestion()">
+                Question suivante →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- RÉSULTAT -->
+
+    <section id="resultArea">
+
+        <h2>🎉 Quiz terminé !</h2>
+
+        <p>Ton résultat :</p>
+
+        <div id="finalScore" class="score"></div>
+
+        <p id="resultMessage"></p>
+
+        <button class="restart-btn" onclick="backToSubjects()">
+            Choisir une autre matière
+        </button>
+
+    </section>
+
+</main>
+
+
+<script src="js/quiz.js"></script>
+
+</body>
+</html>
